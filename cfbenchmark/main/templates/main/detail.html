@@ -1,0 +1,57 @@
+<html>
+    <head>
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}">
+        <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"> </script>
+        <title>Basic Detail</title>
+    </head>
+    <style>
+        body{
+            background-image: url("https://i.pinimg.com/originals/e9/21/16/e92116e68d393ad46cfaa443bf4ae91b.jpg");
+            height: 100%;
+            background-attachment: scroll;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        .mycontainer::before{
+            z-index: 1;
+            opacity: 0.6;
+        }
+        .logo-image{
+            width: 46px;
+            height: 46px;
+            border-radius: 0%;
+            overflow: hidden;
+            margin-top: 6px;
+        }
+        .title-div {
+            background: rgba(0, 0,0, 0.6);
+            height: 45vh;
+            width: 60%;
+            padding-right: 10px;
+            padding-left: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: 300;
+        }
+        .main {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 85vh;
+        }
+    </style>
+
+    <body class="mycontainer">
+        {% include "main/includes/navbar.html" %}
+          <div class="main">
+              <div class="title-div">
+                  <p>In this project, you can compare codeforces profile of two users. There is also an option to see anyone's profile.</p>
+              </div>
+          </div>
+    </body>
+</html>

@@ -1,0 +1,147 @@
+<html>
+  <head>
+    {% load static %}
+    <link
+      href="https://fonts.googleapis.com/css?family=Ubuntu"
+      rel="stylesheet"
+    />
+    <script
+      defer
+      src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script
+      type="text/javascript"
+      src="https://canvasjs.com/assets/script/canvasjs.min.js"
+    ></script>
+    <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}" />
+    <title>Home</title>
+
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=UA-167981579-1"
+    ></script>
+  </head>
+  <style>
+    body {
+      font-family: sans-serif;
+      font-size: 20px;
+      background-color: #d9d9d9;
+    }
+
+    .form-div center img {
+      height: 55px;
+    }
+
+    .side-container img {
+      height: 40%;
+      display: flex;
+      align-items: center;
+    }
+
+    .side-container center {
+      padding-top: 100px;
+    }
+
+    form {
+      margin: 10px auto;
+      padding: 24px 12px 0px 7px;
+    }
+
+    .button {
+      background-color: #368a3d;
+      border: none;
+      color: white;
+      padding: 8px 24px;
+      height: 90px;
+      width: 40px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 36px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button {
+      background-color: white;
+      color: black;
+      border: 2px solid #737373;
+    }
+
+    .button:hover {
+      background-color: rgba(49, 111, 204, 0.788);
+      color: white;
+    }
+
+    #box {
+      height: 85vh;
+      padding: 40px;
+      background-color: white;
+      margin-top: 2px;
+    }
+
+    p {
+      font-size: 14px;
+    }
+  </style>
+
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+    gtag("js", new Date());
+    gtag("config", "UA-167981579-1");
+  </script>
+
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+  <script>
+    $(document).keypress(function (e) {
+      if (e.which == 13) {
+        $("#btt").click();
+      }
+    });
+  </script>
+
+  <body>
+    {% include "main/includes/navbar.html" %}
+    <div class="row">
+      <div id="box" class="form-container col s6 m6 l5 xl5">
+        <div class="form-div">
+          <center>
+            <img src="{% static 'main/images/contrast.svg' %}" /><br />
+            Compare two profile
+          </center>
+        </div>
+
+        <div class="row">
+        <form action="/" method="post" class="col s12">
+          {% csrf_token %}
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="user1" name="user1" type="text" placeholder="Enter First Username" required />  
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="user2" name="user2" type="text" placeholder="Enter Second Username" required />
+            </div>
+          </div>
+          <button class="waves-effect waves-light btn-large" type="submit">
+            GO
+          </button>
+        </form>
+      </div>
+      </div>
+      <div class="side-container col s6 m6 l7 xl7">
+        <center>
+          <img src="{% static 'main/images/projection.svg' %}" />
+        </center>
+      </div>
+    </div>
+  </body>
+  <script src="{% static 'main/js/main.js' %}"></script>
+</html>

@@ -1,0 +1,66 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <title>Profile Search</title>
+  {% load static %}
+  <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"> </script>
+  <link rel="stylesheet" href="{% static 'main/css/materialize.css' %}">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-167981579-1"> </script>
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+</head>
+
+<script>
+  $(document).keypress(function (e) {
+    if (e.which == 13) {
+      $("#btt").click();
+    }
+  });
+</script>
+
+<style>
+   .button {
+      background-color: #368a3d;
+      border: none;
+      color: white;
+      padding: 8px 24px;
+      height: 40px;
+      width: 100px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 10px 36px;
+      -webkit-transition-duration: 0.4s;
+      transition-duration: 0.4s;
+      cursor: pointer;
+    }
+
+    .button {
+      background-color: white;
+      color: black;
+      border: 2px solid #737373;
+    }
+
+    .button:hover {
+      background-color: rgba(49, 111, 204, 0.788);
+      color: white;
+    }
+</style>
+
+<body>
+  {% include "main/includes/navbar.html" %}
+  <form method="POST" class="field is-grouped container" style="max-width: 1000px; margin-top: 40px;">
+    {% csrf_token %}
+    <p class="control is-expanded">
+      <input class="input" type="text" name="userid" id="userid" placeholder="user handle" required>
+    </p>
+    <p class="control">
+      <a class="button" id="btt">
+        <strong>Submit </strong>
+      </a>
+    </p>
+  </form>
+  <br> <br>
+</body>
+</html>

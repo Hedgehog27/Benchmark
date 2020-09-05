@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+<head>  
+  <title>Compare</title>
+  {% load static %}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.8.2/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"> </script>
+    <link rel="stylesheet" href="{% static 'main/css/index.css' %}" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"></link>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>
+    <script type="text/javascript" src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+    <script src="{% static 'main/js/main.js' %}"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+    <style>
+      .parallax {
+        background: url("{% static 'main/images/bg.jpg' %}");
+        height: 100%;
+        padding: 20px;
+        background-attachment: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+      }
+    </style>
+</head>
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-167981579-1"> </script>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'UA-167981579-1');
+  window.onload = function(){
+    console.log("Details ==== ", "{{detail}}")
+    let a = "{{detail.username1.Username}}"
+    let b = "{{detail.username2.Username}}"
+    loadDetail(a, b)
+    }
+</script>
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+ $(document).keypress(function(e){
+    if (e.which == 13){
+        $("#btt").click();
+    }
+});
+</script>
+
+<body>
+<div class="parallax">
+  <div class="header-container">
+    {% for key, value in detail.items %}
+       <div class="header-card col-sm-6 col-md-6 col-lg-6 col-xs-12">
+            <div class="title-div">
+            <h2> {{value.Username}} </h2>
+          </div>
+            <ul class="data-list">
+              <br><br>
+              {% for ky, val in value.items %}
+              <li class="data" style="font-size: medium;color:black;">
+                {{ky|safe}} - {{val|safe}}
+              </li>
+              {% endfor %}
+            </ul>
+       </div>
+    {% endfor %}
+   </div>
+</div>
+ <div class="container" style="padding: 10%;">
+  <div id="chartContainer" style="height:600px">
+</div>
+</body>
+</html>
